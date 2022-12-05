@@ -1,0 +1,15 @@
+{
+    "defaults": {
+        "identity": "manager",
+        "channel": "my-channel1",
+        "contract": "supplychain"
+    },
+    "orgs": [
+        "supplier",
+        "manufacturer"
+    ],
+    "users": [
+        "manager",
+        "employee"
+    ]
+}

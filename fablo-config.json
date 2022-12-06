@@ -15,7 +15,7 @@
     {
       "organization": {
         "name": "Orderer",
-        "domain": "orderer.example.com"
+        "domain": "orderer.accionlabs.com"
       },
       "orderers": [
         {
@@ -31,46 +31,139 @@
     {
       "organization": {
         "name": "Supplier",
-        "domain": "supplier.example.com"
+        "domain": "supplier.accionlabs.com"
       },
       "peer": {
-        "instances": 2,
+        "instances": 1,
         "db": "CouchDb"
       },
       "tools": {
-        "fabloRest": true
+        "fabloRest": false
       }
     },
     {
       "organization": {
         "name": "Manufacturer",
-        "domain": "manufacturer.example.com"
+        "domain": "manufacturer.accionlabs.com"
       },
       "peer": {
-        "instances": 2,
+        "instances": 1,
         "db": "CouchDb"
       },
       "tools": {
-        "fabloRest": true
+        "fabloRest": false
+      }
+    },
+    {
+      "organization": {
+        "name": "Regulator",
+        "domain": "regulator.accionlabs.com"
+      },
+      "peer": {
+        "instances": 1,
+        "db": "CouchDb"
+      },
+      "tools": {
+        "fabloRest": false
+      }
+    },
+    {
+      "organization": {
+        "name": "Logistics",
+        "domain": "logistics.accionlabs.com"
+      },
+      "peer": {
+        "instances": 1,
+        "db": "CouchDb"
+      },
+      "tools": {
+        "fabloRest": false
+      }
+    },
+    {
+      "organization": {
+        "name": "Wholesaler",
+        "domain": "wholesaler.accionlabs.com"
+      },
+      "peer": {
+        "instances": 1,
+        "db": "CouchDb"
+      },
+      "tools": {
+        "fabloRest": false
+      }
+    },
+    {
+      "organization": {
+        "name": "Retailer",
+        "domain": "retailer.accionlabs.com"
+      },
+      "peer": {
+        "instances": 1,
+        "db": "CouchDb"
+      },
+      "tools": {
+        "fabloRest": false
+      }
+    },
+    {
+      "organization": {
+        "name": "Consumer",
+        "domain": "consumer.accionlabs.com"
+      },
+      "peer": {
+        "instances": 1,
+        "db": "CouchDb"
+      },
+      "tools": {
+        "fabloRest": false
       }
     }
   ],
   "channels": [
     {
-      "name": "my-channel1",
+      "name": "supplychain-channel",
       "orgs": [
         {
           "name": "Supplier",
           "peers": [
-            "peer0",
-            "peer1"
+            "peer0"
           ]
         },
         {
           "name": "Manufacturer",
           "peers": [
-            "peer0",
-            "peer1"
+            "peer0"
+          ]
+        },
+        {
+          "name": "Regulator",
+          "peers": [
+            "peer0"
+          ]
+        },
+        {
+          "name": "Logistics",
+          "peers": [
+            "peer0"
+          ]
+        },
+        {
+          "name": "Wholesaler",
+          "peers": [
+            "peer0"
+          ]
+        },
+        {
+          "name": "Retailer",
+          "peers": [
+            "peer0"
+          ]
+        },
+        {
+          "name": "Consumer",
+          "peers": [
+            "peer0"
           ]
         }
       ]
@@ -81,7 +174,7 @@
       "name": "supplychain",
       "version": "0.0.1",
       "lang": "node",
-      "channel": "my-channel1",
+      "channel": "supplychain-channel",
       "directory": "./chaincodes/supplychain"
     }
   ]

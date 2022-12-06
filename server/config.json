@@ -1,15 +1,21 @@
 {
     "defaults": {
         "identity": "manager",
-        "channel": "my-channel1",
+        "channel": "supplychain-channel",
         "contract": "supplychain"
     },
     "orgs": [
         "supplier",
-        "manufacturer"
+        "manufacturer",
+        "regulator",
+        "logistics",
+        "wholesaler",
+        "retailer",
+        "consumer"
     ],
     "users": [
         "manager",
         "employee"
-    ]
+    ],
+    "orgURL": "accionlabs.com"
 }

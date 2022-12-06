@@ -5,28 +5,12 @@
 'use strict';
 
 const { Contract } = require('fabric-contract-api');
+var moment = require('moment-timezone');
 
 class SupplyChain extends Contract {
 
-    async initLedger(ctx) {
-        console.info('============= START : Initialize Ledger ===========');
-        const batches = [
-            {
-                latitude: '17.34567',
-                longitude: '17.34567',
-                quantity: '10',
-                status: 'Packed'
-            }
-        ];
-
-        for (let i = 0; i < batches.length; i++) {
-            await ctx.stub.putState('1' + i, Buffer.from(JSON.stringify(batches[i])));
-            console.info('Added <--> batches' + i, batches[i]);
-        }
-        console.info('============= END : Initialize Ledger ===========');
-    }
-
     async queryBatch(ctx, batchNumber) {
+
         const batchAsBytes = await ctx.stub.getState(batchNumber);
         if (!batchAsBytes || batchAsBytes.length === 0) {
             throw new Error(`${batchNumber} does not exist`);
@@ -36,6 +20,7 @@ class SupplyChain extends Contract {
     }
 
     async createBatch(ctx, org, batchNumber, latitude, longitude, quantity, status, comment) {
+
         console.info('============= START : Create Batch ===========');
 
         const batch = {
@@ -46,7 +31,8 @@ class SupplyChain extends Contract {
                 quantity,
                 status,
                 org,
-                comment
+                comment,
+                date: moment().format().toString()
             }
         };
 
@@ -57,6 +43,7 @@ class SupplyChain extends Contract {
     }
 
     async updateBatch(ctx, org, batchNumber, latitude, longitude, status, comment) {
+
         console.info('============= START : Update Batch ===========');
 
         const batchAsBytes = await ctx.stub.getState(batchNumber);
@@ -71,6 +58,7 @@ class SupplyChain extends Contract {
         newBatch.latest.org = org
         newBatch.latest.status = status
         newBatch.latest.comment = comment
+        newBatch.latest.date = moment().format().toString()
 
         await ctx.stub.putState(batchNumber, Buffer.from(JSON.stringify(newBatch)));
         console.info('============= END : Update Batch ===========');

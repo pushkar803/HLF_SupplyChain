@@ -26,7 +26,7 @@ async function createAdminForOrgs(orgName) {
         const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
         // Create a new CA client for interacting with the CA.
-        const caInfo = ccp.certificateAuthorities['ca.' + orgName + '.example.com'];
+        const caInfo = ccp.certificateAuthorities['ca.' + orgName + "." + config.orgURL];
         //const caTLSCACerts = caInfo.tlsCACerts.pem;
 
         const ca = new FabricCAServices(caInfo.url, { /*trustedRoots: caTLSCACerts,*/ verify: false }, caInfo.caName);

@@ -1,2 +1,5 @@
 fablo-target/
 node_modules
+**/server/fabric/wallet/*/
+**/package-lock.json
+package-lock.json

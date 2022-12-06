@@ -17,7 +17,9 @@
     "author": "SoftwareMill",
     "dependencies": {
         "fabric-contract-api": "^2.4.2",
-        "fabric-shim": "^2.4.2"
+        "fabric-shim": "^2.4.2",
+        "moment": "^2.29.4",
+        "moment-timezone": "^0.5.39"
     },
     "devDependencies": {
         "@theledger/fabric-mock-stub": "^5.0.1",

@@ -46,3 +46,17 @@ and enter
 	python3 -m http.server
 
 this will run on http://3.14.67.13:8000/
+
+#### Check docker disk space usage
+
+	docker system df
+	
+#### Check docker dangling images
+
+	docker images -f dangling=true
+	
+#### Check docker dangling images
+	
+	docker system prune -af
+	
+

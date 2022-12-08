@@ -4,9 +4,6 @@
     "fabricVersion": "2.4.0",
     "tls": false,
     "peerDevMode": false,
-    "monitoring": {
-      "loglevel": "debug"
-    },
     "tools": {
       "explorer": true
     }

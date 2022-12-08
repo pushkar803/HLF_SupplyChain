@@ -31,7 +31,7 @@ this will run on http://3.14.67.13:3003
 
 ### Start Supplychain Site
 
-	cd ~/www/html/hlf_supplychain
+	cd ~/HLF_SupplyChain/hlf_supplychain_website/
 
 check if tmux session with name hlf_website is laready there by
 	

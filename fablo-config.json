@@ -30,8 +30,8 @@
     },
     {
       "organization": {
-        "name": "Supplier",
-        "domain": "supplier.accionlabs.com"
+        "name": "Manufacturer",
+        "domain": "manufacturer.accionlabs.com"
       },
       "peer": {
         "instances": 1,
@@ -43,8 +43,8 @@
     },
     {
       "organization": {
-        "name": "Manufacturer",
-        "domain": "manufacturer.accionlabs.com"
+        "name": "Builder",
+        "domain": "builder.accionlabs.com"
       },
       "peer": {
         "instances": 1,
@@ -125,13 +125,13 @@
       "name": "supplychain-channel",
       "orgs": [
         {
-          "name": "Supplier",
+          "name": "Manufacturer",
           "peers": [
             "peer0"
           ]
         },
         {
-          "name": "Manufacturer",
+          "name": "Builder",
           "peers": [
             "peer0"
           ]

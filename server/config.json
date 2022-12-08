@@ -5,8 +5,8 @@
         "contract": "supplychain"
     },
     "orgs": [
-        "supplier",
         "manufacturer",
+        "builder",
         "regulator",
         "logistics",
         "wholesaler",

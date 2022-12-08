@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SupplyChain Blockchain</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <br>
+        <h3>SupplyChain Blockchain</h3>
+        <br>
+        <div class="form-group">
+            <label for="usr">
+                <h4></h4>Batch No:</h4>
+            </label>
+            <input type="text" class="form-control" id="batch_no" style="width:40%"><br>
+            <button id="batch_no_in_btn" class="btn btn-primary">Search</button>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <h4>Batch Details</h4>
+                <div id="batch_details">
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h4>History</h4>
+                <div id="batch_history">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    url = "http://3.14.67.13:3003/getBatch/"
+
+    $(document).ready(function () {
+
+        $("#batch_no_in_btn").click(function () {
+            let batch_no = $("#batch_no").val()
+            if (batch_no == "") {
+                alert("please enter batch no:")
+            } else {
+                console.log(batch_no)
+                getDetails(batch_no)
+            }
+        });
+
+    });
+
+    function getDetails(batch_id) {
+
+        $('#batch_details').empty();
+        $('#batch_history').empty();
+
+        $.ajax({
+            url: url + batch_id,
+            type: "GET",
+            async: true,
+            headers: {
+                "user-role": "manufacturer"
+            },
+            success: function (data) {
+
+                let result = data.result
+
+                let batch_details = `
+                    <div class="shadow p-3 mb-5 bg-white rounded">
+                        <h6>Batch Id: ${batch_id}</h6>
+                        <h6>Lumber with quantity ${result.latest.quantity}</h6>
+                    </div>
+                `
+                $('#batch_details').append(batch_details)
+
+                var new_arr = result.history.reverse();
+
+                let batch_history = `
+                    <div class="shadow p-3 mb-5 bg-white rounded">
+                        <h5>${result.latest.status} by ${result.latest.org}</h5>
+                        <p>Date: ${result.latest.date}</p>
+                        <p>Quantity: ${result.latest.quantity}</p>
+                        <p>Comment: ${result.latest.comment}</p>
+                        <p>latitude: ${result.latest.latitude}</p>
+                        <p>longitude: ${result.latest.longitude}</p>
+                    </div>
+                `
+                $('#batch_history').append(batch_history)
+
+                new_arr.forEach((item, index) => {
+
+                    console.log(item)
+
+                    let batch_history = `
+                        <div class="shadow p-3 mb-5 bg-white rounded">
+                            <h5>${item.status} by ${item.org}</h5>
+                            <p>Date: ${item.date}</p>
+                            <p>Quantity: ${item.quantity}</p>
+                            <p>Comment: ${item.comment}</p>
+                            <p>latitude: ${item.latitude}</p>
+                            <p>longitude: ${item.longitude}</p>
+                        </div>
+                    `
+                    $('#batch_history').append(batch_history)
+                })
+
+            },
+            error: function (xhr, exception) {
+                var msg = "";
+                if (xhr.status === 0) {
+                    msg = "Not connect.\n Verify Network." + xhr.responseText;
+                } else if (xhr.status == 404) {
+                    msg = "Requested page not found. [404]" + xhr.responseText;
+                } else if (xhr.status == 500) {
+                    msg = "Internal Server Error [500]." + xhr.responseText;
+                } else if (exception === "parsererror") {
+                    msg = "Requested JSON parse failed.";
+                } else if (exception === "timeout") {
+                    msg = "Time out error." + xhr.responseText;
+                } else if (exception === "abort") {
+                    msg = "Ajax request aborted.";
+                } else {
+                    msg = "Error:" + xhr.status + " " + xhr.responseText;
+                }
+
+                alert(msg)
+
+            }
+        });
+    }
+
+
+</script>

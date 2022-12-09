@@ -27,7 +27,7 @@
     },
     {
       "organization": {
-        "name": "TechnicalUser",
+        "name": "Technicaluser",
         "domain": "technicaluser.accionlabs.com"
       },
       "peer": {
@@ -135,7 +135,7 @@
       "name": "supplychain-channel",
       "orgs": [
         {
-          "name": "TechnicalUser",
+          "name": "Technicaluser",
           "peers": [
             "peer0"
           ]

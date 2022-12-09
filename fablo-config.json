@@ -27,6 +27,19 @@
     },
     {
       "organization": {
+        "name": "TechnicalUser",
+        "domain": "technicaluser.accionlabs.com"
+      },
+      "peer": {
+        "instances": 1,
+        "db": "CouchDb"
+      },
+      "tools": {
+        "fabloRest": false
+      }
+    },
+    {
+      "organization": {
         "name": "Manufacturer",
         "domain": "manufacturer.accionlabs.com"
       },

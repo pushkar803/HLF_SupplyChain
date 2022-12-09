@@ -5,6 +5,7 @@
         "contract": "supplychain"
     },
     "orgs": [
+        "technicaluser",
         "manufacturer",
         "builder",
         "regulator",

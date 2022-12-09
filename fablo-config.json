@@ -135,6 +135,12 @@
       "name": "supplychain-channel",
       "orgs": [
         {
+          "name": "TechnicalUser",
+          "peers": [
+            "peer0"
+          ]
+        },
+        {
           "name": "Manufacturer",
           "peers": [
             "peer0"

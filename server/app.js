@@ -22,6 +22,7 @@ app.post('/createBatch', network.connectToNetwork, async (req, res) => {
         const result = await contract.submitTransaction('createBatch',
             org,
             batchJson._id,
+            batchJson.accountId,
             batchJson.latitude,
             batchJson.longitude,
             batchJson.quantity.toString(),

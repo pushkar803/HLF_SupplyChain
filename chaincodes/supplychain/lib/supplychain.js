@@ -19,13 +19,14 @@ class SupplyChain extends Contract {
         return batchAsBytes.toString();
     }
 
-    async createBatch(ctx, org, batchNumber, latitude, longitude, quantity, status, comment) {
+    async createBatch(ctx, org, batchNumber, accountId, latitude, longitude, quantity, status, comment) {
 
         console.info('============= START : Create Batch ===========');
 
         const batch = {
             history: [],
             latest: {
+                accountId,
                 latitude,
                 longitude,
                 quantity,

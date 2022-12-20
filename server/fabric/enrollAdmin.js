@@ -14,8 +14,8 @@ const { capitalize } = require('./misc');
 var config = require('../config.json');
 
 async function main() {
-    config.orgs.forEach((org, index) => {
-        createAdminForOrgs(org)
+    config.orgs.forEach(async (org, index) => {
+        await createAdminForOrgs(org)
     })
 }
 

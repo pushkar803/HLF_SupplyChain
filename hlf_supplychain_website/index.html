@@ -100,7 +100,7 @@
 
                 let batch_history = `
                     <div class="shadow p-3 mb-5 bg-white rounded">
-                        <h5>${result.latest.status} by ${result.latest.org}</h5>
+                        <h5>${result.latest.status} by ${returnOeg(result.latest.status)}</h5>
                         <p>Date: ${result.latest.date}</p>
                         <p>BatchID: ${batch_id}</p>
                         <p>AccountId: ${result.latest.accountId}</p>
@@ -118,7 +118,7 @@
 
                     let batch_history = `
                         <div class="shadow p-3 mb-5 bg-white rounded">
-                            <h5>${item.status} by ${item.org}</h5>
+                            <h5>${item.status} by ${returnOeg(item.status)}</h5>
                             <p>Date: ${item.date}</p>
                             <p>BatchID: ${batch_id}</p>
                             <p>AccountId: ${result.latest.accountId}</p>
@@ -156,5 +156,15 @@
         });
     }
 
-
+    function returnOeg(status) {
+        let org = ""
+        if (status == "manufactured") {
+            org = "manufacturer"
+        } else if (status == "shipped") {
+            org = "shipper"
+        } else if (status == "builder") {
+            org = "builder"
+        }
+        return org
+    }
 </script>

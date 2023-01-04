@@ -45,7 +45,8 @@ app.post('/updateBatch', network.connectToNetwork, async (req, res) => {
     try {
         const contract = req.contract;
         const batchJson = req.body;
-        const org = req.org
+        //const org = req.org
+        const org = returnOeg(batchJson.status)
 
         const result = await contract.submitTransaction('updateBatch',
             org,
@@ -89,3 +90,17 @@ app.get('/getBatch/:id', network.connectToNetwork, async (req, res) => {
 app.listen(3003, () => {
     console.log('Listening on port 3003');
 });
+
+function returnOeg(status) {
+    let org = ""
+    if (status == "manufactured") {
+        org = "manufacturer"
+    } else if (status == "shipped") {
+        org = "shipper"
+    } else if (status == "builder") {
+        org = "builder"
+    } else if (status == "new batch added") {
+        org = "technical user"
+    }
+    return org
+}

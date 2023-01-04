@@ -53,73 +53,21 @@
     },
     {
       "organization": {
+        "name": "Shipper",
+        "domain": "shipper.accionlabs.com"
+      },
+      "peer": {
+        "instances": 1,
+        "db": "CouchDb"
+      },
+      "tools": {
+        "fabloRest": false
+      }
+    },
+    {
+      "organization": {
         "name": "Builder",
         "domain": "builder.accionlabs.com"
-      },
-      "peer": {
-        "instances": 1,
-        "db": "CouchDb"
-      },
-      "tools": {
-        "fabloRest": false
-      }
-    },
-    {
-      "organization": {
-        "name": "Regulator",
-        "domain": "regulator.accionlabs.com"
-      },
-      "peer": {
-        "instances": 1,
-        "db": "CouchDb"
-      },
-      "tools": {
-        "fabloRest": false
-      }
-    },
-    {
-      "organization": {
-        "name": "Logistics",
-        "domain": "logistics.accionlabs.com"
-      },
-      "peer": {
-        "instances": 1,
-        "db": "CouchDb"
-      },
-      "tools": {
-        "fabloRest": false
-      }
-    },
-    {
-      "organization": {
-        "name": "Wholesaler",
-        "domain": "wholesaler.accionlabs.com"
-      },
-      "peer": {
-        "instances": 1,
-        "db": "CouchDb"
-      },
-      "tools": {
-        "fabloRest": false
-      }
-    },
-    {
-      "organization": {
-        "name": "Retailer",
-        "domain": "retailer.accionlabs.com"
-      },
-      "peer": {
-        "instances": 1,
-        "db": "CouchDb"
-      },
-      "tools": {
-        "fabloRest": false
-      }
-    },
-    {
-      "organization": {
-        "name": "Consumer",
-        "domain": "consumer.accionlabs.com"
       },
       "peer": {
         "instances": 1,
@@ -147,37 +95,13 @@
           ]
         },
         {
+          "name": "Shipper",
+          "peers": [
+            "peer0"
+          ]
+        },
+        {
           "name": "Builder",
-          "peers": [
-            "peer0"
-          ]
-        },
-        {
-          "name": "Regulator",
-          "peers": [
-            "peer0"
-          ]
-        },
-        {
-          "name": "Logistics",
-          "peers": [
-            "peer0"
-          ]
-        },
-        {
-          "name": "Wholesaler",
-          "peers": [
-            "peer0"
-          ]
-        },
-        {
-          "name": "Retailer",
-          "peers": [
-            "peer0"
-          ]
-        },
-        {
-          "name": "Consumer",
           "peers": [
             "peer0"
           ]

@@ -12,6 +12,7 @@ const CONTRACT = config.defaults.contract;
 exports.connectToNetwork = async function (req, res, next) {
   try {
     var userRole = req.headers['user-role'];
+    console.log("\n-------------")
     console.log("userRole: " + userRole)
 
     // load the network configuration

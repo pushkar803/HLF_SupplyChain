@@ -46,7 +46,9 @@ app.post('/updateBatch', network.connectToNetwork, async (req, res) => {
         const contract = req.contract;
         const batchJson = req.body;
         //const org = req.org
+        console.log("batchJson.status: " + batchJson.status)
         const org = returnOeg(batchJson.status)
+        console.log("org: " + org)
 
         const result = await contract.submitTransaction('updateBatch',
             org,

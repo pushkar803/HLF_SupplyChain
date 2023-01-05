@@ -12,6 +12,7 @@ const CONTRACT = config.defaults.contract;
 exports.connectToNetwork = async function (req, res, next) {
   try {
     var userRole = req.headers['user-role'];
+    console.log("userRole: " + userRole)
 
     // load the network configuration
     const ccpPath = path.resolve(__dirname, '..', '..', 'fablo-target', 'fabric-config', 'connection-profiles', 'connection-profile-' + userRole + '.json');

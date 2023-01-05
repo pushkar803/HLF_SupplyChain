@@ -97,7 +97,7 @@ function returnOeg(status) {
         org = "manufacturer"
     } else if (status == "shipped") {
         org = "shipper"
-    } else if (status == "builder") {
+    } else if (status == "consumed") {
         org = "builder"
     } else if (status == "new batch added") {
         org = "technical user"
